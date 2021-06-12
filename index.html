@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camera</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel='stylesheet' href='style.css' >
+</head>
+<body>
+    <div class='video-container' >
+        <video autoplay style='transform : scale(1)' ></video>
+    </div>
+
+    <div class = 'filter-container' >
+        <div class='filter filter-1' style='background-color: #ff9ff23d;'></div>
+        <div class='filter filter-1' style='background-color: rgba(199, 241, 82, 0.301)'></div>
+        <div class='filter filter-1' style='background-color: #00d3d33d;'></div>
+        <div class='filter filter-1' style='background-color: #ff9e4336;'></div>
+        <div class='filter filter-1' style='background-color: #5e27cd59;'></div>
+        <div class='filter filter-1' ></div>
+    </div>
+
+    <div class='sidebar'>
+        <div>
+            <button id='record'>
+                <div class='innercircle record'></div>
+            </button>
+            <button id='capture'>
+                <div class='innercircle capture'></div>
+            </button>
+        </div>
+    
+        <div class='zoom zoom-in material-icons' style >zoom_in</div>
+        <div class='zoom zoom-out material-icons'>zoom_out</div>
+
+        <div class='gallery material-icons' >collections</div>
+    </div>
+    
+    <script src='dbScript.js'></script>
+    <script src='script.js' ></script>
+</body>
+</html>

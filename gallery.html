@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"> 
+    <link rel='stylesheet' href='gallery.css'>
+</head>
+<body>
+    <div class='container' >
+        <div class='back-container' >
+            <span class="material-icons back-button">
+                photo_camera
+                </span>
+        </div>
+        <div class='heading' >
+            Gallery
+        </div>
+        <div class='media-container' >
+            <!-- <div class='media-card'>
+                <div class='img-container' ></div>
+                <div class='button-container'>
+                    <div class='download button'>Download</div>
+                    <div class='delete button' >Delete</div>
+                </div>
+            </div> -->
+        </div>
+    </div>
+
+    <script src='dbScript.js' ></script>
+    <script>
+        setTimeout( function(){
+            viewMedia();
+        }, 100);
+        let backbtn = document.querySelector('.back-button')
+        backbtn.addEventListener('click', function(){
+            location.assign('index.html');
+        })
+    </script>
+</body>
+</html>

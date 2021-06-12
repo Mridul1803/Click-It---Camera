@@ -1,0 +1,107 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+}
+
+.container{
+    width: 100vw;
+    height: 100vh;
+    background-color: #ee8383;
+    background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%232d9ce5' fill-opacity='0.4'%3E%3Cpath d='M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10zm10 8c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm40 40c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");    
+}
+
+.back-container{
+    position: absolute;
+    top: 4vh;
+    left: 2vw;
+    height: 6vh;
+    width: 5vw;
+}
+
+.back-button{
+    cursor: pointer;
+    font-size: 3rem;
+}
+
+.back-button:hover{
+    font-size: 3.5rem;
+}
+
+.heading{
+    position: absolute;
+    top: 1vh;
+    left: calc( 50vw - 11vw );
+    width: 22vw;
+    height: 15vh;
+    font-size: 5rem;
+    margin: auto;
+    text-align: center;
+    background-color: #00dbde;
+    border-radius: 10px;
+    /* padding-top: 5px; */
+    font-family: 'Dancing Script', cursive;
+}
+
+.media-container{
+    position: absolute;
+    top: 18vh;
+    /* margin: 0 5%; */
+    width: 100vw;
+    height: 79vh;
+    display: flex;
+    justify-content:space-evenly;
+    flex-wrap: wrap;
+}
+
+.media-card{
+    height: 15rem;
+    width: 15rem;
+    border: 1px solid;
+}
+
+.img-container{
+    width: 100%;
+    height: 80%;
+    /* border: 1px solid; */
+}
+
+.button-container{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content:space-evenly;
+    align-items: center;
+    background: #fb00ffa6;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #00dadea6, #fb00ffa6);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #00dbde, #fb00ffa6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.button{
+    width: 35%;
+    height: 75%;
+    padding-top: 8px;
+    border: 1px solid;
+    border-radius: 10px;
+    text-align: center;
+    border: 0;
+    font-size: 1rem;
+    font-weight: bolder;
+}
+
+.button:hover{
+    padding-top: 5px;
+    border: 2px solid;
+}
+
+.download{
+    background-color: rgb(36, 161, 36);
+}
+.delete{
+    background-color: rgb(238, 36, 36);
+}
+.media{
+    width: 100%;
+    height: 100%;
+}

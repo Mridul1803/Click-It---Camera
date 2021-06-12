@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type='text' id='name'>
+    <input type='number' id='version'>
+    <button>Create</button>
+    <hr/>
+
+    <input type="text" id='note' >
+    <button id='add'>Add note</button>
+    <script>
+        let name = document.querySelector('#name');
+        let version = document.querySelector('#version');
+        let btn = document.querySelector('button');
+        
+        let note = document.querySelector('#note');
+        let addbtn = document.querySelector('#add');
+        let db, v, dbAccess;
+
+        addbtn.addEventListener('click', function(){
+            let noteValue = note.value;
+
+            if(!dbAccess){
+                alert( 'Please open a databse' );
+                return;
+            }
+
+            //for reading or writing from DB, a transaction has to be created
+            //types of transaction : readonly / readwrite
+            //to create transaction - objectstore is passed
+            let tx = dbAccess.transaction('cs', 'readwrite');
+            let csObjectStore = tx.objectStore('cs');
+            let data = {
+                nId: Date.now(),
+                noteValue: noteValue
+            };
+            csObjectStore.add(data);
+        })
+
+        btn.addEventListener('click', function(){
+            db = name.value;
+            v = version.value;
+
+            //first open the DB using indexedDB.open
+            //parameter : dbName, version
+            let req = indexedDB.open( db, v);
+
+            //whenever new db is created, success event occurs
+            req.addEventListener('success', function(){
+                alert('Success');
+
+                //req.result provides the access to the DB
+                dbAccess = req.result; 
+                viewNotes();
+            } )
+
+            req.addEventListener('error', function(){
+                alert('error');
+            })
+
+            //whenever new db is created or a new version is created
+            req.addEventListener('upgradeneeded', function(){
+                alert('upgrade');
+                let db = req.result;
+
+                //create new ObjectStore
+                //name and unique identification has to be passed
+                db.createObjectStore('cs', {keyPath:'nId'});
+            })
+        } )
+
+        function viewNotes(){
+            let tx = dbAccess.transaction('cs', 'readonly');
+            let csObjectStore = tx.objectStore('cs');
+            let req = csObjectStore.openCursor();
+
+            req.addEventListener('success', function(){
+                let cursor = req.result;
+
+                if(cursor){
+                    console.log(cursor.value.noteValue);
+                    cursor.continue();
+                }
+            })
+        }
+
+    </script>
+
+</body>
+</html>
